@@ -14,12 +14,12 @@ namespace Aristotle::core
         return *istance;
     }
 
-    void ApplicationContext::RegisterBean(const std::string &id, std::any &&bean)
+    void ApplicationContext::RegisterBean(const std::string &id, Bean &bean)
     {
         this->beans[id] = bean;
     }
 
-    std::any ApplicationContext::GetBean(const std::string &id)
+    Bean ApplicationContext::GetBean(const std::string &id)
     {
         return this->beans[id];
     }

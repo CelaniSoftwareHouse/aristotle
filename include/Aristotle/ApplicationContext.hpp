@@ -2,12 +2,12 @@
 #define ApplicationContext_file
 
 #include <string>
-#include <memory>
 #include <map>
-#include <any>
 
 namespace Aristotle::core
 {
+
+    class Bean {};
 
     class ApplicationContext
     {
@@ -19,11 +19,11 @@ namespace Aristotle::core
             ApplicationContext& operator=(ApplicationContext&&) = delete;
 
             static ApplicationContext & getIstance();
-            void RegisterBean(const std::string & id, std::any && bean);
-            std::any GetBean(const std::string &id);
+            void RegisterBean(const std::string & id, Bean & bean);
+            Bean GetBean(const std::string &id);
 
         private:
-            std::map<std::string, std::any> beans;
+            std::map<std::string, Bean> beans;
 
             ApplicationContext() {}
             ~ApplicationContext() {}

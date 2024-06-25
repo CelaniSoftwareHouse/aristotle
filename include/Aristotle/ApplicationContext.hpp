@@ -18,15 +18,7 @@ namespace Aristotle::core
             ApplicationContext& operator=(const ApplicationContext&) = delete;
             ApplicationContext& operator=(ApplicationContext&&) = delete;
 
-            static ApplicationContext & getIstance()
-            {
-                if(!istance) {
-                    istance = new ApplicationContext();
-                }
-                return *istance;
-            }
-
-            
+            static ApplicationContext & getIstance();
             void RegisterBean(const std::string & id, std::any && bean);
             std::any GetBean(const std::string &id);
 

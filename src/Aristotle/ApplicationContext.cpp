@@ -5,7 +5,16 @@
 
 namespace Aristotle::core
 {
-    void ApplicationContext::RegisterBean(const std::string & id, std::any && bean)
+    ApplicationContext &ApplicationContext::getIstance()
+    {
+        if (!istance)
+        {
+            istance = new ApplicationContext();
+        }
+        return *istance;
+    }
+
+    void ApplicationContext::RegisterBean(const std::string &id, std::any &&bean)
     {
         this->beans[id] = bean;
     }
